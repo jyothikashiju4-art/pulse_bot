@@ -6,18 +6,23 @@ def get_github_repos():
     token = os.environ["GITHUB_TOKEN_PORTFOLIO"]
     username = "jyothikashiju4-art"
     
-    url = f"https://api.github.com/users/{username}/repos"
+    url = f"https://api.github.com/users/{username}/repos?per_page=100"
     headers = {
-        "Authorization": f"token {token}",
+        "Authorization": f"Bearer {token}",
         "Accept": "application/vnd.github.v3+json"
     }
     
     response = requests.get(url, headers=headers, timeout=10)
-    repos = response.json()
+    data = response.json()
+    
+    # Check if API returned an error
+    if isinstance(data, dict) and "message" in data:
+        print(f"API Error: {data['message']}")
+        return []
     
     projects = []
-    for repo in repos:
-        if not repo["fork"]:  # skip forked repos
+    for repo in data:
+        if not repo["fork"]:
             projects.append({
                 "name": repo["name"],
                 "description": repo["description"] or "No description",
