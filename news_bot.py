@@ -7,7 +7,7 @@ from datetime import datetime
 
 def get_news():
     api_key = os.environ["NEWS_API_KEY"]
-    url = f"https://newsapi.org/v2/top-headlines?country=in&pageSize=10&apiKey={api_key}"
+    url = f"https://newsapi.org/v2/top-headlines?language=en&pageSize=10&apiKey={api_key}"
 
     response = requests.get(url, timeout=10)
     data = response.json()
