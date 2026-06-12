@@ -1,5 +1,9 @@
+import os
+import smtplib
+from email.mime.text import MIMEText
 import requests
 from datetime import date
+
 
 
 # Pulse Daily Summary Bot
@@ -76,7 +80,26 @@ def build_summary():
     return summary
 
 
-# 5. RUN BOT
+# 5. SEND EMAIL
+def send_email(summary):
+    """Send the summary to Gmail."""
+
+    sender = os.environ["EMAIL_ADDRESS"]
+    password = os.environ["EMAIL_PASSWORD"]
+
+    msg = MIMEText(summary)
+    msg["Subject"] = "📊 Your Daily Pulse Summary"
+    msg["From"] = sender
+    msg["To"] = sender
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(sender, password)
+        server.send_message(msg)
+
+    print("📧 Email sent successfully!")
+
+
+# 6. RUN BOT
 def run():
     """Main entry point."""
 
@@ -88,6 +111,9 @@ def run():
     # Save output to a file
     with open("daily_summary.txt", "w", encoding="utf-8") as f:
         f.write(summary)
+
+    # Send email
+    send_email(summary)
 
     print("✅ Pulse ran successfully!")
 
