@@ -1,10 +1,4 @@
-Great idea! A README makes your project look professional. Here's one you can use:
 
----
-
-Create a file called `README.md` in your project root and paste this:
-
-```markdown
 # 📊 Pulse Daily Summary Bot
 
 A Python automation bot that sends a daily summary email every morning.
@@ -45,5 +39,5 @@ pulse_bot/
 jyothikashiju4-art
 ```
 
----
+
 
