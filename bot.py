@@ -2,25 +2,36 @@ import requests
 from datetime import date
 
 
-# 1. WEATHER FUNCTION
+# Pulse Daily Summary Bot
+# Fetches: weather (wttr.in) + quote (ZenQuotes) + daily fact
+# Runs locally and later via GitHub Actions
+
+
+# 1. WEATHER
 def get_weather(city="Thiruvananthapuram"):
+    """Fetch today's weather as a one-line text summary."""
+
     url = f"https://wttr.in/{city}?format=3"
 
     try:
         response = requests.get(url, timeout=10)
         response.raise_for_status()
         return response.text.strip()
+
     except Exception as e:
         return f"Weather unavailable ({e})"
 
 
-# 2. QUOTE FUNCTION
+# 2. QUOTE
 def get_quote():
+    """Fetch a random motivational quote."""
+
     url = "https://zenquotes.io/api/random"
 
     try:
         response = requests.get(url, timeout=10)
         response.raise_for_status()
+
         data = response.json()
 
         quote = data[0]["q"]
@@ -32,12 +43,22 @@ def get_quote():
         return f"Quote unavailable ({e})"
 
 
-# 3. BUILD SUMMARY
+# 3. FACT
+def get_date_fact():
+    """Return a daily fact."""
+
+    return "Fun fact: Consistency builds mastery 🚀"
+
+
+# 4. BUILD SUMMARY
 def build_summary():
+    """Assemble the full daily summary."""
+
     today = date.today().strftime("%A, %d %B %Y")
 
     weather = get_weather()
     quote = get_quote()
+    fact = get_date_fact()
 
     summary = f"""
 📅 DAILY SUMMARY - PULSE BOT ({today})
@@ -47,21 +68,30 @@ def build_summary():
 
 💬 QUOTE OF THE DAY:
 {quote}
+
+📌 FACT:
+{fact}
 """
+
     return summary
 
 
-# 4. RUN FUNCTION (MAIN)
+# 5. RUN BOT
 def run():
+    """Main entry point."""
+
     summary = build_summary()
 
+    # Show output in terminal/GitHub Actions logs
     print(summary)
 
+    # Save output to a file
     with open("daily_summary.txt", "w", encoding="utf-8") as f:
         f.write(summary)
 
-    print("\n✅ Pulse ran successfully!")
+    print("✅ Pulse ran successfully!")
 
 
+# Start the program
 if __name__ == "__main__":
     run()
