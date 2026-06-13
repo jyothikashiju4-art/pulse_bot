@@ -46,5 +46,5 @@ jobs:
 
       - name: Run portfolio updater
         env:
-          GITHUB_TOKEN_PORTFOLIO: ${{ secrets.GITHUB_TOKEN_PORTFOLIO }}
+          GITHUB_TOKEN_PORTFOLIO: ${{ secrets.TOKEN_GITHUB }}
         run: python portfolio_updater.py
