@@ -15,7 +15,6 @@ def get_github_repos():
     response = requests.get(url, headers=headers, timeout=10)
     data = response.json()
     
-    # Check if API returned an error
     if isinstance(data, dict) and "message" in data:
         print(f"API Error: {data['message']}")
         return []
