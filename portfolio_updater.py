@@ -3,7 +3,7 @@ import json
 import requests
 
 def get_github_repos():
-    token = os.environ["GITHUB_TOKEN_PORTFOLIO"]
+    token = os.environ["TOKEN_PORTFOLIO"]
     username = "jyothikashiju4-art"
     
     url = f"https://api.github.com/users/{username}/repos?per_page=100"
