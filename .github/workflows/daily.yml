@@ -40,4 +40,11 @@ jobs:
       - name: Run news bot
         env:
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PAS
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+        run: python news_bot.py
+
+      - name: Run portfolio updater
+        env:
+          TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
+        run: python portfolio_updater.py
