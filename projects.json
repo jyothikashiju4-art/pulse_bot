@@ -1,15 +1,15 @@
 [
   {
     "name": "folio",
-    "description": "No description",
+    "description": "Personal developer portfolio built with HTML, CSS & JavaScript. Designed in Figma, deployed on Netlify.",
     "url": "https://github.com/jyothikashiju4-art/folio",
     "language": "CSS",
     "stars": 0,
-    "updated": "2026-06-12"
+    "updated": "2026-06-13"
   },
   {
     "name": "pulse_bot",
-    "description": "No description",
+    "description": "Python automation bot that sends daily weather, news & motivational quotes via email. Scheduled with GitHub Actions.",
     "url": "https://github.com/jyothikashiju4-art/pulse_bot",
     "language": "Python",
     "stars": 0,
