@@ -1,5 +1,21 @@
 [
   {
+    "name": "CETAA",
+    "description": "No description",
+    "url": "https://github.com/jyothikashiju4-art/CETAA",
+    "language": "HTML",
+    "stars": 0,
+    "updated": "2026-06-27"
+  },
+  {
+    "name": "CETAA_",
+    "description": "No description",
+    "url": "https://github.com/jyothikashiju4-art/CETAA_",
+    "language": "HTML",
+    "stars": 0,
+    "updated": "2026-06-27"
+  },
+  {
     "name": "folio",
     "description": "Personal developer portfolio built with HTML, CSS & JavaScript. Designed in Figma, deployed on Netlify.",
     "url": "https://github.com/jyothikashiju4-art/folio",
@@ -13,6 +29,6 @@
     "url": "https://github.com/jyothikashiju4-art/pulse_bot",
     "language": "Python",
     "stars": 0,
-    "updated": "2026-06-25"
+    "updated": "2026-06-26"
   }
 ]
